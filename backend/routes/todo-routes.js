@@ -2,8 +2,8 @@ const express = require('express')
 
 const router = express.Router()
 
-router.get('/', (req, res, next)=>{
-    res.send('hello')
-})
+const todoControllers = require('../controllers/todo-controllers')
+
+router.get('/', todoControllers.getTodos)
 
 module.exports = router
