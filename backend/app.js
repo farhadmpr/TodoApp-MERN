@@ -2,8 +2,8 @@ const express = require('express')
 
 const app = express()
 
-app.get('/', (req, res, next)=>{
-    res.send('hello')
-})
+const todoRoutes = require('./routes/todo-routes')
+
+app.use('/api/todo', todoRoutes)
 
 app.listen(8000)
