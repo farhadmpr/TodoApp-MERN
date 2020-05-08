@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 import './Todo.css'
 
@@ -13,6 +14,17 @@ const Todo = props => {
     const todoAddHandler = (event) => {
         event.preventDefault()
         setTodoList(todoList.concat(todoName))
+        
+        axios.post('http://localhost:8000/api/todo', {
+            title: todoName
+        })
+        .then((res) => {
+            console.log(res)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+
         setTodoName('')
     }
 
