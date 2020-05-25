@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 app.use('/api/todo', todoRoutes)
 
 mongoose
-    .connect('mongodb://127.0.0.1:27017/todo')
+    .connect('mongodb://mongo:27017/todo')
     .then(() => {
         app.listen(8000)
     })
