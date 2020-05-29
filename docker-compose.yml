@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  mongo:
+    image: "mongo"
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    stdin_open: true
+    depends_on: 
+      - backend
